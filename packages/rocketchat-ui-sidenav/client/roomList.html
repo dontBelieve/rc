@@ -1,0 +1,50 @@
+<template name="roomList">
+	{{#if isLivechat}}
+		{{> livechat . }}
+	{{else}}
+		{{#with rooms}}
+			{{#if shouldAppear .. .}}
+					<h3 class="rooms-list__type">
+						<!-- wgb 2017-11-10 16:24:41 start -->
+						{{#if roomType_favorite ..}}
+							<a href="#favorite" class="toggle-favorite">
+								<i class="icon-star favorite-room pending-color" style="color: #F8E71C;" aria-label="Unfavorite"></i>
+							</a>
+						{{/if}}
+						{{#if roomType_c ..}}
+							<a href="#favorite" class="toggle-favorite">
+								<i class="icon-hash favorite-room pending-color" aria-label="Unfavorite"></i>
+							</a>
+						{{/if}}
+						{{#if roomType_p ..}}
+							<a href="#favorite" class="toggle-favorite">
+								<i class="icon-lock favorite-room pending-color" aria-label="Unfavorite"></i>
+							</a>
+						{{/if}}
+						{{#if roomType_d ..}}
+							<a href="#favorite" class="toggle-favorite">
+								<i class="icon-at favorite-room pending-color" aria-label="Unfavorite"></i>
+							</a>
+						{{/if}}
+						<!-- wgb 2017-11-10 16:24:41 end -->
+
+						<span class="rooms-list__type-text" style="margin-left: 5px;">{{_ ../label}}</span>
+						
+						{{#with count}}
+							{{#if .}}
+								<!-- wgb 2017-11-10 13:23:07 () -->
+								<span class="badge">({{.}})</span>
+							{{/if}}
+						{{/with}}
+					</h3>
+					<ul class="rooms-list__list {{ roomType ..}}">
+						{{#each room in this}}
+							{{> chatRoomItem room }}
+						{{else}}
+							<p class="rooms-list__empty-room">{{_ "No_channels_yet" }}</p>
+						{{/each}}
+					</ul>
+				{{/if}}
+		{{/with}}
+	{{/if}}
+</template>

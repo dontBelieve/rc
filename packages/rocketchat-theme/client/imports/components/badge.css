@@ -1,0 +1,22 @@
+/* .badge {
+	display: inline-block;
+
+	padding: 3px 6px;
+
+	color: var(--badge-text-color);
+
+	border-radius: var(--badge-radius);
+
+	background-color: var(--badge-background);
+
+	font-size: var(--badge-text-size);
+
+	&--unread {
+		background-color: var(--badge-unread-background);
+	}
+} */
+
+/* wgb 2017-11-10 13:21:59 */
+.badge {
+	margin-left: 10px;
+}
